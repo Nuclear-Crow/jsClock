@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clock</title>
+</head>
+<body>
+<div style="position:relative; top:0; margin:50px; width:400px; height:400px; background-color:#dddddd; border-radius:50%; z-index:0;" id="base">
+<div style="position:absolute; top:190px; left:190px; width:10px; height:10px; background-color:#dddddd; border: 5px solid; border-radius:50%; z-index:2;" id="center"></div>
+<div style="position:absolute; top:60px; left:198.5px; width:3px; height:140px; background-color:#000000; transform:rotate(0deg); transform-origin:center bottom; z-index:1;" id="second"></div>
+<div style="position:absolute; top:30px; left:197.5px; width:5px; height:170px; background-color:#000000; transform:rotate(0deg); transform-origin:center bottom; z-index:1;" id="minute"></div>
+<div style="position:absolute; top:120px; left:196px; width:8px; height:80px; background-color:#dd0000; transform:rotate(0deg); transform-origin:center bottom; z-index:1;" id="hour"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(0deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(30deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(60deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(90deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(120deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(150deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(180deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(210deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(240deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(270deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(300deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<div style="position:absolute; top:10px; left:198px; width:4px; height:16px; background-color:#777777; transform:rotate(330deg); transform-origin:center 190px; z-index:1;" class="mark"></div>
+<script>
+var clock = new Date();
+updateClock();
+
+function updateClock(){
+    document.getElementById("second").style.transform = "rotate("+clock.getSeconds()*6+"deg)";
+    document.getElementById("minute").style.transform = "rotate("+(clock.getMinutes()*6+clock.getSeconds()/10)+"deg)";
+    document.getElementById("hour").style.transform = "rotate("+(clock.getHours()*30+clock.getMinutes()/2)+"deg)";
+    clock.setTime(clock.getTime()+1000);
+}
+setInterval(updateClock, 1000);
+</script>
+</div>
+</body>
+</html>
